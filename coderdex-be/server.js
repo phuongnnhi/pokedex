@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 3000; // Use default port if not specified in .
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
-
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors()); // Enable cross-origin resource sharing
 app.use(express.json()); // Parse incoming JSON requests
 const pokedexRoutes = require('./routes/pokedex-api')
